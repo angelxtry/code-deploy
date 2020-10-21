@@ -1,0 +1,9 @@
+apps:
+  - name: 'quicksight-api'
+    script: './dist/index.js'
+    max_memory_restart: '800M'
+    instances: 1
+    env:
+      NODE_ENV: development
+    env_production:
+      NODE_ENV: production
