@@ -2,7 +2,7 @@
 # then
 #   sudo chown ${USER:=$(/usr/bin/id -run)}:$USER "/home/ubuntu/deplpy-test";
 # fi
-sudo chown ${USER:=$(/usr/bin/id -run)}:$USER "/home/ubuntu/deplpy-test";
+# sudo chown ${USER:=$(/usr/bin/id -run)}:$USER "/home/ubuntu/deplpy-test";
 
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm

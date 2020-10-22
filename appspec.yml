@@ -9,11 +9,11 @@ hooks:
   #   - location: /scripts/application_stop.sh
   #     timeout: 180
   #     runas: root
-  BeforeInstall:
-    - location: /scripts/before_install.sh
-      timeout: 180
-      runas: root
-  # ApplicationStart:
-  #   - location: /scripts/application_start.sh
+  # BeforeInstall:
+  #   - location: /scripts/before_install.sh
   #     timeout: 180
   #     runas: root
+  ApplicationStart:
+    - location: /scripts/application_start.sh
+      timeout: 180
+      runas: ubuntu
