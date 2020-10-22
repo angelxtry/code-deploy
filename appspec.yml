@@ -6,10 +6,10 @@ files:
     destination: /home/ubuntu/deplpy-test
 hooks:
   BeforeInstall:
-    - location: /home/ubuntu/deplpy-test/scripts/before_install.sh
+    - location: /scripts/before_install.sh
       timeout: 180
       runas: root
   ApplicationStart:
-    - location: /home/ubuntu/deplpy-test/scripts/application_start.sh
+    - location: /scripts/application_start.sh
       timeout: 180
       runas: root
