@@ -5,15 +5,15 @@ files:
   - source: /
     destination: /home/ubuntu/deplpy-test
 hooks:
-  ApplicationStop:
-    - location: /scripts/application_stop.sh
-      timeout: 180
-      runas: root
+  # ApplicationStop:
+  #   - location: /scripts/application_stop.sh
+  #     timeout: 180
+  #     runas: root
   BeforeInstall:
     - location: /scripts/before_install.sh
       timeout: 180
       runas: ubuntu
-  ApplicationStart:
-    - location: /scripts/application_start.sh
-      timeout: 180
-      runas: ubuntu
+  # ApplicationStart:
+  #   - location: /scripts/application_start.sh
+  #     timeout: 180
+  #     runas: ubuntu
