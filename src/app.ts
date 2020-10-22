@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use('/health', (_, res) => {
-  res.status(200).send('health check version2!@#$ one more!');
+  res.status(200).send('health check');
 });
 
 app.use('/dashboard', dashboardRouter);
