@@ -1,1 +1,1 @@
-yarn prod
+yarn
