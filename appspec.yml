@@ -4,16 +4,16 @@ os: linux
 files:
   - source: /
     destination: /home/ubuntu/deplpy-test
-hooks:
-  BeforeInstall:
-    - location: /home/ubuntu/deplpy-test/scripts/before_install.sh
-      timeout: 180
-      runas: ubuntu
-  AfterInstall:
-    - location: scripts/after_install.sh
-      timeout: 180
-      runas: ubuntu
-  # ApplicationStart:
-  #   - location: scripts/application_start.sh
-  #     timeout: 180
-  #     runas: ubuntu
+# hooks:
+#   BeforeInstall:
+#     - location: /home/ubuntu/deplpy-test/scripts/before_install.sh
+#       timeout: 180
+#       runas: ubuntu
+#   AfterInstall:
+#     - location: scripts/after_install.sh
+#       timeout: 180
+#       runas: ubuntu
+# ApplicationStart:
+#   - location: scripts/application_start.sh
+#     timeout: 180
+#     runas: ubuntu
