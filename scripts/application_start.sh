@@ -1,3 +1,1 @@
-yarn
-
 yarn prod
