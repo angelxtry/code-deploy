@@ -6,9 +6,9 @@ name: Deploy
 # events but only for the main branch
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 env:
   PROJECT_NAME: action_codedeploy
@@ -25,16 +25,10 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Use Node.js 14.x
-        uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-    
       - name: Make zip file
         run: zip -qq -r ./$GITHUB_SHA.zip .
         shell: bash
-      
+
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -47,4 +41,3 @@ jobs:
 
       - name: Code Deploy
         run: aws deploy create-deployment --application-name github-action-deploy --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name deploy --ignore-application-stop-failures --s3-location bucket=github-action-deploy-s3,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
-  
