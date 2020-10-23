@@ -9,8 +9,10 @@ on:
 env:
   PROJECT_NAME: github-action-deploy
   S3_NAME: github-action-deploy-s3
-  DEPLOY_APP_NAME: github-action-deploy
-  DEPLOY_GROUP_NAME: deploy
+  # DEPLOY_APP_NAME: github-action-deploy
+  # DEPLOY_GROUP_NAME: deploy
+  DEPLOY_APP_NAME: GitHubActionDeployTestServer
+  DEPLOY_GROUP_NAME: development
 
 jobs:
   build:
