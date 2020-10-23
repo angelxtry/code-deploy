@@ -1,6 +1,6 @@
-if [ -d "/home/ubuntu/deplpy-test" ]
+if [ -d "$HOME/deplpy-test" ]
 then
-  cd "/home/ubuntu/deplpy-test"
+  cd "$HOME/deplpy-test"
   yarn stop
-  sudo rm -rf "/home/ubuntu/deplpy-test"
+  sudo rm -rf "$HOME/deplpy-test"
 fi
