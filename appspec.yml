@@ -1,14 +1,10 @@
-#/appspec.yml
+# appspec.yml
 version: 0.0
 os: linux
 files:
   - source: /
     destination: /home/ec2-user/deplpy-test
 hooks:
-  # ApplicationStop:
-  #   - location: /scripts/application_stop.sh
-  #     timeout: 180
-  #     runas: root
   BeforeInstall:
     - location: /scripts/before_install.sh
       timeout: 180
