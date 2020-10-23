@@ -9,8 +9,8 @@ on:
 env:
   PROJECT_NAME: github-action-deploy
   S3_NAME: github-action-deploy-s3
-  DEPLOY_APP_NAME: GitHubActionDeployTestServer
-  DEPLOY_GROUP_NAME: development
+  DEPLOY_APP_NAME: github-action-deploy
+  DEPLOY_GROUP_NAME: deploy
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Make zip file
-        run: zip -qq -r ./$PROJECT_NAME-$GITHUB_SHA.zip .
+        run: zip -qq -r ./$GITHUB_SHA.zip .
         shell: bash
 
       - name: Configure AWS credentials
@@ -31,7 +31,7 @@ jobs:
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Upload to S3
-        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$PROJECT_NAME-$GITHUB_SHA.zip s3://$S3_NAME/$PROJECT_NAME/$PROJECT_NAME-$GITHUB_SHA.zip
+        run: aws s3 cp --region ${{ secrets.AWS_REGION }} ./$GITHUB_SHA.zip s3://$S3_NAME/$PROJECT_NAME/$GITHUB_SHA.zip
 
       - name: Code Deploy
-        run: aws deploy create-deployment --application-name $DEPLOY_APP_NAME --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name $DEPLOY_GROUP_NAME --ignore-application-stop-failures --s3-location bucket=$S3_NAME,bundleType=zip,key=$PROJECT_NAME/$PROJECT_NAME-$GITHUB_SHA.zip
+        run: aws deploy create-deployment --application-name $DEPLOY_APP_NAME --deployment-config-name CodeDeployDefault.OneAtATime --deployment-group-name $DEPLOY_GROUP_NAME --ignore-application-stop-failures --s3-location bucket=$S3_NAME,bundleType=zip,key=$PROJECT_NAME/$GITHUB_SHA.zip
